@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+app_name = 'webPortal'
+
+def index(request):
+    context={}
+    return render(request, 'webPortal/index.html', context) 
