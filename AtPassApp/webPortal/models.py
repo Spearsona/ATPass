@@ -7,12 +7,21 @@ class User(models.Model):
     dob = models.DateField('Date Of Birth')
     email = models.EmailField
 
+    def __str__(self):
+        return self.firstName + " " + self.lastName 
+
 class Provider(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class AtCategory(models.Model):
     name = models.CharField(max_length=100)
     desc = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.name
 
 
 class Equipment(models.Model):
@@ -20,8 +29,14 @@ class Equipment(models.Model):
     description = models.CharField(max_length=500)
     atcategory = models.ForeignKey(AtCategory, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+
 
 class Loan(models.Model):
     equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.id
