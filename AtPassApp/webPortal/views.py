@@ -10,14 +10,19 @@ def index(request):
 def userloans(request):
     #userid will be taken from session, putting in placeholder user for now
     userid = 1
-    user = User.object.get(user=userid)
-    username = user.
-    userloans = Loan.objects.get(user=userid)
+    user = User.objects.get(id=1)
+    
+    userloans = Loan.objects.filter(user=userid)
 
+    for loan in userloans:
+        
+                
+    
     num_userloans = userloans.count()
 
     
     context={
+        'user': user,
         'userloans': userloans,
         'num_userloans': num_userloans,
     }
