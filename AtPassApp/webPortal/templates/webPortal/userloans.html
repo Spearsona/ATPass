@@ -2,8 +2,31 @@
   
 {% block content %}
   <h1>Your Loans</h1>
+
   
   <p>
+    Welcome {{ user }}!
     You have {{ num_userloans }} loans. 
+    <table>
+      <tr>
+        <th>Current Loans</th>
+      </tr>
+      {% for loan in userloans%}
+        <tr>
+          <td>LoanId: {{loan.id}}</td>
+        </tr>
+      {% endfor %}
+      {% for item in equipment %}
+        <tr>
+          <td>Equipment: {{item.name}} </td>
+        </tr>
+        <tr>
+          <td>Description: {{item.description}}</td>
+        </tr>
+        <tr>
+          <td>Category: {{item.atcategory}}</td>
+        </tr>
+      {% endfor %}
+    </table>
   </p>
 {% endblock %}

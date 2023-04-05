@@ -13,11 +13,15 @@ def userloans(request):
     user = User.objects.get(id=1)
     
     userloans = Loan.objects.filter(user=userid)
-
+    equipment = []
+    provider = []
     for loan in userloans:
-        
-                
-    
+        equipment.append(loan.equipment)
+        provider.append(loan.provider)
+
+
+
+
     num_userloans = userloans.count()
 
     
@@ -25,5 +29,7 @@ def userloans(request):
         'user': user,
         'userloans': userloans,
         'num_userloans': num_userloans,
+        'equipment': equipment,
+        'provider':provider,
     }
     return render(request, 'webPortal/userloans.html', context)
