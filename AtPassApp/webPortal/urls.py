@@ -11,7 +11,7 @@ urlpatterns = [
     path('userloans', views.userloans, name='userloans'),
 ]
 
-
 #Remove for production enviornment
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 
