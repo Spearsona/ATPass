@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import User, Loan, Equipment
+from .models import AtUser, Loan, Equipment
 
 app_name = 'webPortal'
 
@@ -9,10 +9,11 @@ def index(request):
 
 def userloans(request):
     #userid will be taken from session, putting in placeholder user for now
-    userid = 1
-    user = User.objects.get(id=1)
+    atuserid = 1
     
-    userloans = Loan.objects.filter(user=userid)
+    atuser = AtUser.objects.get(id=1)
+    
+    userloans = Loan.objects.filter(atuser=atuserid)
     equipment = []
     provider = []
     for loan in userloans:
@@ -23,7 +24,7 @@ def userloans(request):
 
     
     context={
-        'user': user,
+        'atuser': atuser,
         'userloans': userloans,
         'num_userloans': num_userloans,
         'equipment': equipment,

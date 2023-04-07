@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class User(models.Model):
+class AtUser(models.Model):
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
     dob = models.DateField('Date Of Birth')
@@ -35,6 +35,6 @@ class Equipment(models.Model):
 
 class Loan(models.Model):
     equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    atuser = models.ForeignKey(AtUser, on_delete=models.CASCADE)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
 
