@@ -11,22 +11,21 @@
       <tr>
         <th>Current Loans</th>
       </tr>
-      {% for loan in userloans%}
+      {% for loan in userloans %}
         <tr>
           <td>LoanId: {{loan.id}}</td>
         </tr>
-      {% endfor %}
-      {% for item in equipment %}
         <tr>
-          <td>Equipment: {{item.name}} </td>
+          <td>Equipment: {{loan.equipment.name}} </td>
         </tr>
         <tr>
-          <td>Description: {{item.description}}</td>
+          <td>Description: {{loan.equipment.description}}</td>
         </tr>
         <tr>
-          <td>Category: {{item.atcategory}}</td>
+          <td>Category: {{loan.equipment.atcategory}}</td>
         </tr>
       {% endfor %}
+      
     </table>
   </p>
 {% endblock %}

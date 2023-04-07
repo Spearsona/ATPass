@@ -19,9 +19,6 @@ def userloans(request):
         equipment.append(loan.equipment)
         provider.append(loan.provider)
 
-
-
-
     num_userloans = userloans.count()
 
     
@@ -33,3 +30,4 @@ def userloans(request):
         'provider':provider,
     }
     return render(request, 'webPortal/userloans.html', context)
+
