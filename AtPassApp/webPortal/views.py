@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from .models import AtUser, Loan, Equipment
-
+from .models import AtUser, LoanInstance
 app_name = 'webPortal'
 
 def index(request):
@@ -13,22 +12,14 @@ def userloans(request):
     
     atuser = AtUser.objects.get(id=1)
     
-    userloans = Loan.objects.filter(atuser=atuserid)
-    equipment = []
-    provider = []
-    for loan in userloans:
-        equipment.append(loan.equipment)
-        provider.append(loan.provider)
+    userloans = LoanInstance.objects.filter(atuser=atuserid)
 
     num_userloans = userloans.count()
 
-    
     context={
         'atuser': atuser,
         'userloans': userloans,
         'num_userloans': num_userloans,
-        'equipment': equipment,
-        'provider':provider,
     }
     return render(request, 'webPortal/userloans.html', context)
 

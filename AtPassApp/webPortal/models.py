@@ -33,7 +33,7 @@ class Equipment(models.Model):
         return self.name
 
 
-class Loan(models.Model):
+class LoanInstance(models.Model):
     equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE)
     atuser = models.ForeignKey(AtUser, on_delete=models.CASCADE)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
